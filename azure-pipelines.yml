@@ -5,6 +5,13 @@ variables:
   wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
   dotnetSdkVersion: '3.1.100'
   releaseBranchName: 'release-pipeline' #created a new variable for release branch
+Schedules:
+  - cron: '0 3 * * *'
+    displayName: 'Deploy every day at 3 am'
+    branches: 
+      include:
+        - 'release-pipeline'
+    always: false
 #-----Build Stage ---
 stages:
 - stage: 'Build'
